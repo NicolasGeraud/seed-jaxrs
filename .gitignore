@@ -1,0 +1,56 @@
+# JAVA
+*.class
+*.jar
+*.war
+*.ear
+
+# MAVEN
+target/
+
+# INTELLIJ
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# ECLIPSE
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+local.properties
+.classpath
+.settings/
+.loadpath
+*.launch
+
+# NETBEANS
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# SUBLIME
+*.sublime-workspace
+
+# WINDOWS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# MACOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
