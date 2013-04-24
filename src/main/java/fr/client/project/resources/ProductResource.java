@@ -7,11 +7,14 @@ import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 @Component
 @Path("/products")
-public class ProductResource {
+public class ProductResource extends AbstractRESTService {
 
   @Autowired
   protected ProductsRepository repository;
@@ -26,13 +29,16 @@ public class ProductResource {
   @Path("/{id}")
   @Produces(MediaType.APPLICATION_JSON)
   public Product findById(@PathParam("id") Long id) {
-    return repository.findOne(id);
+    Product product = repository.findOne(id);
+    notFoundIfNull(product);
+    return product;
   }
 
   @POST
   @Consumes(MediaType.APPLICATION_JSON)
-  public void create(Product product) {
+  public Response create(Product product) throws URISyntaxException {
     repository.save(product);
+    return Response.created(new URI(product.getId().toString())).build();
   }
 
   @PUT
